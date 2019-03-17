@@ -58,14 +58,28 @@
     render();
     // mesh.rotation.x += 1.05;
     // mesh.rotation.y += 0.02;
-    //         mesh.rotation.z += 4.14;
+            mesh.rotation.z += 0.94;
     var delta = 0;
     var cnv = document.querySelector('#myCanvas');
         console.log(cnv)
-        cnv.addEventListener('mousemove',function() {
-            mesh.rotation.x += 0.05;
-            mesh.rotation.y += 0.2;
-            mesh.rotation.z += 0.02;
+        var curX = -1;
+        var curY = -1;
+        cnv.addEventListener('mousemove',function(e) {
+            console.log(e.pageX)
+            console.log(e.pageY)
+            console.log(curX)
+            if(curX == -1 ) {
+                curX = e.pageX;
+                curY = e.pageY;
+                return false;
+            }
+
+
+            mesh.rotation.x += Math.PI / window.innerHeight * (e.pageY - curY) * 2;
+            mesh.rotation.y += Math.PI / window.innerWidth * (e.pageX - curX) * 2;
+            curX = e.pageX;
+            curY = e.pageY;
+            // mesh.rotation.z += 0.02;
         })
     function render() {
     	// mesh.rotation.x += 0.05;
