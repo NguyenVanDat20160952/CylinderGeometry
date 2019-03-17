@@ -56,11 +56,24 @@
 
     //RENDER LOOP
     render();
-
+    // mesh.rotation.x += 1.05;
+    // mesh.rotation.y += 0.02;
+    //         mesh.rotation.z += 4.14;
     var delta = 0;
+    var cnv = document.querySelector('#myCanvas');
+        console.log(cnv)
+        cnv.addEventListener('mousemove',function() {
+            mesh.rotation.x += 0.05;
+            mesh.rotation.y += 0.2;
+            mesh.rotation.z += 0.02;
+        })
     function render() {
-    	mesh.rotation.x += 0.01;
-    	mesh.rotation.y += 0.01;
+    	// mesh.rotation.x += 0.05;
+        // mesh.rotation.y += 0.02;
+        // mesh.rotation.z += 0.02;
+        // cnv.addEventListener('click',function() {
+        //     mesh.rotation.x += 0.05;
+        // })
 
     	renderer.render(scene, camera);
 
